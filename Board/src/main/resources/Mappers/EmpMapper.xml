@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.global.ex.mapper.EmpMapper">
+    <!-- CDATA 안에 있는 SQL 문에다가 세미콜론 붙이면 골로간다. -->
+
+    <resultMap  id="empMap" type="EmpVO"><!--resultMap => EmpVO와 데이터베이스를 매핑-->
+        <id property="empno" column="empno"/><!--id=> key라는것을 알림 property = 변수 에다가 컬럼영 empno인 db값을 매핑시키겠다-->
+        <result property="ename" column="ename"/>
+        <result property="job" column="job"/>
+        <result property="mgr" column="mgr"/>
+        <result property="hiredate" column="hiredate"/>
+        <result property="sal" column="sal"/>
+        <result property="comm" column="comm"/>
+        <result property="deptno" column="deptno"/>
+    </resultMap>
+
+    <resultMap id="deptMap" type="DeptVO">
+        <result property="deptno" column="deptno"/>
+        <result property="dname" column="dname"/>
+        <result property="loc" column="loc"/>
+        <collection property="empList" resultMap="empMap"></collection><!--1대 N관계 resultMap에 매핑할 id를 넣고-->
+    </resultMap>
+
+
+    <select id="getList" resultType="EmpVO">
+        <![CDATA[
+            SELECT * FROM EMP
+        ]]>
+    </select>
+
+    <select id="getDept_EmpList" resultMap="deptMap"><!--조인시킨 결과를 맵안에 저장-->
+        <![CDATA[
+        select * from emp a,dept b where a.deptno = b.deptno
+        ]]>
+    </select>
+
+</mapper>

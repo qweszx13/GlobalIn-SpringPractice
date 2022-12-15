@@ -19,7 +19,7 @@ class ListTest {
 
         List<BoardVO> boards = boardMapper.getList();
 
-        for(BoardVO board : boards) {
+        for (BoardVO board : boards) {
             System.out.println(board);
         }
     }

@@ -1,15 +1,15 @@
 <%@ page language="java" contentType="text/html;charset=utf-8" pageEncoding="utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <html>
 <head>
     <title>list</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
-        $(document).ready(function (){
+        $(document).ready(function () {
 
-            $("#updateForm").submit(function(event) {
+            $("#updateForm").submit(function (event) {
                 //prevendDefault()는 href로 연결해 주지 않고
                 //단순히 click에 대한 처리를 하도록 해준다.
                 event.preventDefault();
@@ -19,11 +19,11 @@
                 let btitle = $("#input_btitle").val();
                 let bcontent = $("#input_bcontent").val();
 
-                let form={
+                let form = {
                     bid: bid,
                     bname: bname,
                     btitle: btitle,
-                    bcontent:bcontent
+                    bcontent: bcontent
                 };
 
                 /*
@@ -42,10 +42,10 @@
                 console.log(JSON.stringify(form));
 
                 $.ajax({
-                    type : "PUT",
-                    url : "/boards/" + bid,
-                    cashe:false,
-                    contentType:'application/json; charset=utf-8',
+                    type: "PUT",
+                    url: "/boards/" + bid,
+                    cashe: false,
+                    contentType: 'application/json; charset=utf-8',
                     data: JSON.stringify(form),
                     success: function (result) {
                         console.log(result);
@@ -59,7 +59,6 @@
                 });
 
 
-
             });
 
 
@@ -71,27 +70,27 @@
     <form id="updateForm" action="modify" method="post">
         <input type="hidden" name="bid" value="${content_view.bid}">
         <tr>
-            <td> 번호 </td>
+            <td> 번호</td>
             <td> ${content_view.bid} </td>
         </tr>
         <tr>
-            <td> 히트 </td>
+            <td> 히트</td>
             <td> ${content_view.bhit} </td>
         </tr>
         <tr>
-            <td> 이름 </td>
-            <td> <input id="input_bname" type="text" name="bname" value="${content_view.bname}"></td>
+            <td> 이름</td>
+            <td><input id="input_bname" type="text" name="bname" value="${content_view.bname}"></td>
         </tr>
         <tr>
-            <td> 제목 </td>
-            <td> <input id="input_btitle" type="text" name="btitle" value="${content_view.btitle}"></td>
+            <td> 제목</td>
+            <td><input id="input_btitle" type="text" name="btitle" value="${content_view.btitle}"></td>
         </tr>
         <tr>
-            <td> 내용 </td>
-            <td> <textarea id="input_bcontent" rows="10" name="bcontent" >${content_view.bcontent}</textarea></td>
+            <td> 내용</td>
+            <td><textarea id="input_bcontent" rows="10" name="bcontent">${content_view.bcontent}</textarea></td>
         </tr>
-        <tr >
-            <td colspan="2"> <input type="submit" value="수정">
+        <tr>
+            <td colspan="2"><input type="submit" value="수정">
                 &nbsp;&nbsp; <a href="list">목록보기</a>
                 &nbsp;&nbsp; <a href="delete?bid=${content_view.bid}">삭제</a>
                 &nbsp;&nbsp; <a href="reply_view?bid=${content_view.bid}">답변</a></td>

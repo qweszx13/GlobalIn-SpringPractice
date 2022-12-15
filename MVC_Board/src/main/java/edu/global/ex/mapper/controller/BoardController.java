@@ -25,7 +25,7 @@ public class BoardController {
         log.info("list2() ..");
         log.info("list2() Criteria " + cri);
 
-        model.addAttribute("boards",boardService.getList(cri));
+        model.addAttribute("boards", boardService.getList(cri));
 
         int total = boardService.getTotal();
         log.info("total" + total);

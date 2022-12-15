@@ -21,7 +21,7 @@ class EmpList {
 
         List<EmpVO> empVOList = empMapper.getList();
 
-        for(EmpVO emp : empVOList) {
+        for (EmpVO emp : empVOList) {
             System.out.println(emp);
         }
     }

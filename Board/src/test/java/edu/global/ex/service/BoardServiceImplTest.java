@@ -22,7 +22,7 @@ class BoardServiceImplTest {
 
         List<BoardVO> boards = boardService.getList();
 
-        for (BoardVO board: boards) {
+        for (BoardVO board : boards) {
             log.info(board.toString());
         }
 

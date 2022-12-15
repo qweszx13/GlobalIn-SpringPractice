@@ -5,7 +5,7 @@
 <mapper namespace="edu.global.ex.mapper.EmpMapper">
     <!-- CDATA 안에 있는 SQL 문에다가 세미콜론 붙이면 골로간다. -->
 
-    <resultMap  id="empMap" type="EmpVO"><!--resultMap => EmpVO와 데이터베이스를 매핑-->
+    <resultMap id="empMap" type="EmpVO"><!--resultMap => EmpVO와 데이터베이스를 매핑-->
         <id property="empno" column="empno"/><!--id=> key라는것을 알림 property = 변수 에다가 컬럼영 empno인 db값을 매핑시키겠다-->
         <result property="ename" column="ename"/>
         <result property="job" column="job"/>

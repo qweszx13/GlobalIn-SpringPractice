@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.global.ex.mapper.MemberMapper">
+    <!--mapper 경로 잘찾으셈-->
+    <!-- CDATA 안에 있는 SQL 문에다가 세미콜론 붙이면 골로간다. -->
+    <select id="getMemberList" resultType="MemberVO">
+        <![CDATA[
+        SELECT * FROM tbl_member_202201
+        ]]>
+    </select>
+
+</mapper>

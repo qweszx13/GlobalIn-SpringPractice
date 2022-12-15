@@ -19,9 +19,9 @@ public class EmpController {
     private BoardService boardService;
 
     @GetMapping("/emp")
-    public String emp(Model model){
+    public String emp(Model model) {
         log.info("emp() ..");
-        model.addAttribute("deptBoard",boardService.getEmp_DeptList());
+        model.addAttribute("deptBoard", boardService.getEmp_DeptList());
         return "tables";
     }
 

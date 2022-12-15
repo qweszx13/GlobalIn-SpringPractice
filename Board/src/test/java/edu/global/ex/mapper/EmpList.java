@@ -23,7 +23,7 @@ class EmpList {
 
         List<EmpVO> empVOList = empMapper.getList();
 
-        for(EmpVO emp : empVOList) {
+        for (EmpVO emp : empVOList) {
             System.out.println(emp);
         }
     }
@@ -33,7 +33,7 @@ class EmpList {
 
         List<Emp_DeptVO> vos = empMapper.getEmp_DeptList();
 
-        for(Emp_DeptVO emp : vos) {
+        for (Emp_DeptVO emp : vos) {
             System.out.println(emp);
         }
     }
@@ -43,9 +43,9 @@ class EmpList {
 
         List<DeptVO> vos = empMapper.getDept_EmpList();
 
-        for(DeptVO dept : vos) {
+        for (DeptVO dept : vos) {
             System.out.println(dept);
-            for(EmpVO emp : dept.getEmpList()){
+            for (EmpVO emp : dept.getEmpList()) {
                 System.out.println(emp);
             }
         }

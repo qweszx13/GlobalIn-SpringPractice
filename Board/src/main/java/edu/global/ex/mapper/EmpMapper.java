@@ -14,6 +14,7 @@ public interface EmpMapper {
 
     List<DeptVO> getDept_EmpList();
 
-    @Select("select * from emp a,dept b where a.deptno = b.deptno")//테스트용 db문이 길어질수있다. 평범한 조인
+    @Select("select * from emp a,dept b where a.deptno = b.deptno")
+//테스트용 db문이 길어질수있다. 평범한 조인
     List<Emp_DeptVO> getEmp_DeptList();
 }

@@ -23,9 +23,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception{
         //우선 csrf 설정을 해제해줄것
         //초기 개발자만 해주는게 좋음
-        http.csrf().disable();
-
-        http.formLogin();
+        //http.csrf().disable();
+        http.csrf();
+        //스프링 시큐리티에서 제공하는 기본 로그인 폼을 사용하겠음
+        //로그인 폼을 커스텀 마이징...
+        //http://localhost:8282/login
+        http.formLogin()
+                .loginPage("/login")
+                .defaultSuccessUrl("/");
 
         http.authorizeHttpRequests()
                 .antMatchers("/user/**").hasAnyRole("USER","ADMIN")

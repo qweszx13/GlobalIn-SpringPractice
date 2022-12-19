@@ -2,7 +2,6 @@ package edu.global.ex.mapper.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Slf4j
@@ -16,6 +15,7 @@ public class SecurityController {
 
         return "main";
     }
+
     @GetMapping("/user/userHome")
     public String userHome(){
 

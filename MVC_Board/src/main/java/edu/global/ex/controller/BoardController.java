@@ -1,4 +1,4 @@
-package edu.global.ex.mapper.controller;
+package edu.global.ex.controller;
 
 
 import edu.global.ex.page.Criteria;
